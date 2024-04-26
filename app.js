@@ -9,16 +9,9 @@ class Node {
   }
 }
 
-function createArrayOfChars(value) {
-  const array = [];
-  for (let i = 0; i < value.length; i++) {
-    array.push(value[i]);
-  }
-  return array;
-}
-
 function createTreeNode(value) {
-  const nodeArray = value.map((item) => new Node(item));
+  const nodeArray = value.split("").map((item) => new Node(item));
+
   for (let i = 0; i < nodeArray.length; i++) {
     const leftIndex = 2 * i + 1;
     const rightIndex = 2 * i + 2;
@@ -56,20 +49,18 @@ function bfs(value) {
 
 function createHtml(value) {
   innerDiv.innerHTML = "";
-  console.log(value);
   for (let i = 0; i < value.length; i++) {
     let innerHtml = "";
     for (let j = 0; j < value[i].length; j++) {
       innerHtml += `<span>${value[i][j]}</span>`;
     }
-    innerDiv.innerHTML += `<div>${innerHtml}</div>`;
+    innerDiv.innerHTML += `<div id='leafs'>${innerHtml}</div>`;
   }
 }
 
 function handleInput() {
   const inputValue = input.value;
-  const arrayOfChars = createArrayOfChars(inputValue);
-  const treeNode = createTreeNode(arrayOfChars);
-  const bfsValue = bfs(treeNode);
-  createHtml(bfsValue);
+  const treeNode = createTreeNode(inputValue);
+  const array = bfs(treeNode);
+  createHtml(array);
 }

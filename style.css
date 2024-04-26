@@ -17,3 +17,22 @@ body {
   align-items: center;
   font-size: xx-large;
 }
+
+#leafs {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin: 30px;
+}
+
+span {
+  width: 30px;
+  height: 30px;
+  background: lightblue;
+  padding: 10px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
